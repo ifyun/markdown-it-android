@@ -1,5 +1,9 @@
 # markdown-it-android
 
+![License](https://img.shields.io/github/license/imcloudfloating/markdown-it-android)
+![JitPack](https://jitpack.io/v/imcloudfloating/markdown-it-android.svg)
+
+
 Markdown View for Android, based on [markdown-it](https://github.com/markdown-it/markdown-it) and WebView.
 
 ## Preview
@@ -21,6 +25,40 @@ Markdown View for Android, based on [markdown-it](https://github.com/markdown-it
 - Container(info, success, warning, error)
 
 ## Usage
+
+### Setup
+
+Add it in your root build.gradle at the end of repositories(for older gradle version):
+
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Or add following to settings.gradle(for newer gradle version):
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Add the dependency:
+
+```groovy
+dependencies {
+	implementation 'com.github.imcloudfloating:markdown-it-android:1.0.0'
+}
+```
+
+### Use in project
 
 **Required SDK Version >= 22**.
 

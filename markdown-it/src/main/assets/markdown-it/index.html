@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+	<title>markdown-it</title>
+	<link rel="stylesheet" href="./libs/markdown-it/markdown-it.css">
+	<link rel="stylesheet" href="./css/markdown-it-dark.css">
+	<link rel="stylesheet" href="./libs/katex/katex.min.css">
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./libs/katex/katex.min.js"></script>
+	<script src="./libs/markdown-it/markdown-it.min.js"></script>
+	<script src="./libs/markdown-it-container/markdown-it-container.min.js"></script>
+	<script src="./libs/highlight/highlight.min.js"></script>
+	<script src="./libs/markdown-it-katex/index.js"></script>
+	<script src="./index.js"></script>
+</head>
+
+<body>
+	<div id="container" class="container">
+		<div id="content" class="markdown-body"></div>
+	</div>
+</body>
+<script>
+	const darkTheme = window.android.isDarkTheme()
+	console.log(`System Dark Theme: ${darkTheme}`)
+	if (darkTheme === true) {
+		document.body.style.backgroundColor = "#0E1117"
+		useDarkTheme()
+	}
+</script>

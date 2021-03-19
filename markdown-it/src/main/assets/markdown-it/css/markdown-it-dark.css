@@ -1,0 +1,69 @@
+.dark.container {
+    background-color: #0E1117;
+}
+
+.dark .markdown-body {
+    background-color: inherit;
+    color: #F1F6FC;
+}
+
+.dark .markdown-body hr {
+    background-color: #30363d;
+}
+
+.dark .markdown-body img {
+    background-color: inherit;
+}
+
+.dark .markdown-body li::marker {
+	color: #CAD1D9;
+}
+
+.dark .markdown-body strong {
+    color: inherit;
+}
+
+.dark .markdown-body pre {
+    background-color: #171B22;
+    color: #F1F6FC;
+}
+
+.dark .markdown-body pre code {
+	background-color: inherit;
+}
+
+.dark .markdown-body h1,
+.dark .markdown-body h2 {
+    border-bottom-color: #21262d;
+}
+
+.dark .markdown-body blockquote {
+    border-left-color: #3b434b;
+    color: #8b949e;
+}
+
+.dark .markdown-body code {
+    background-color: #30333A;
+    color: #F1F6FC;
+}
+
+.dark .markdown-body table tr {
+    background-color: #0d1117;
+}
+
+.dark .markdown-body table tr:nth-child(2n) {
+    background-color: #161b22;
+}
+
+.dark .markdown-body table th,
+.dark .markdown-body table td {
+    border-color: #3b434b;
+}
+
+.dark .markdown-it-alter-info,
+.dark .markdown-it-alter-success,
+.dark .markdown-it-alter-error,
+.dark .markdown-it-alter-warning {
+	background-color: #171B22;
+    color: white;
+}

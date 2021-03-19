@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "top.cloudli.markdown.demo"
+        applicationId "com.github.imcloudfloating.markdown.demo"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1

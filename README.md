@@ -54,7 +54,7 @@ Add the dependency:
 
 ```groovy
 dependencies {
-	implementation 'com.github.imcloudfloating:markdown-it-android:1.0.0'
+	implementation 'com.github.imcloudfloating:markdown-it-android:1.0.3'
 }
 ```
 

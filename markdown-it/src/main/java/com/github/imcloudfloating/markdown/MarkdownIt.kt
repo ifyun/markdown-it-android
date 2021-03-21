@@ -3,7 +3,6 @@ package com.github.imcloudfloating.markdown
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
@@ -37,6 +36,7 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
             super.onPageFinished(view, url)
             loaded = true
             renderContent()
+            visibility = VISIBLE
         }
 
         override fun shouldOverrideUrlLoading(
@@ -62,8 +62,8 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
     }
 
     init {
-        setBackgroundColor(Color.TRANSPARENT)
         if (!isInEditMode) {
+            visibility = INVISIBLE
             loadUrl("file:///android_asset/markdown-it/index.html")
             addJavascriptInterface(WebAppInterface(context, fitSystemTheme), "android")
             settings.run {
@@ -89,14 +89,13 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
      * Render markdown string
      */
     private fun renderContent() {
-        Log.d(TAG, "render")
         execJavascript("javascript:setContent('${markdownString}')")
     }
 
     private fun execJavascript(script: String) {
         if (loaded) {
             evaluateJavascript(script, null)
-            return
+            Log.d(TAG, "Render")
         }
     }
 }

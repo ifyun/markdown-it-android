@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    def lib_version = "1.0.2"
+    def lib_version = "1.0.3"
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 

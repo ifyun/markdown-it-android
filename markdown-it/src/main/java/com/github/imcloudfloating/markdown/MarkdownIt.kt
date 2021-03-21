@@ -9,8 +9,6 @@ import android.util.AttributeSet
 import android.util.Log
 import android.webkit.*
 import org.apache.commons.text.StringEscapeUtils
-import java.lang.Thread.sleep
-import java.util.concurrent.Executors
 
 /**
  * Markdown-It View
@@ -25,7 +23,6 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
         private const val TAG = "MARKDOWN_IT_ANDROID"
     }
 
-    private val executorService = Executors.newSingleThreadExecutor()
     private var loaded = false
     var fitSystemTheme = true
 
@@ -39,6 +36,7 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
             loaded = true
+            renderContent()
         }
 
         override fun shouldOverrideUrlLoading(
@@ -99,17 +97,6 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
         if (loaded) {
             evaluateJavascript(script, null)
             return
-        }
-        /**
-         * Wait for WebView to finish loading.
-         */
-        executorService.execute {
-            while (!loaded) {
-                sleep(100)
-            }
-            post {
-                evaluateJavascript(script, null)
-            }
         }
     }
 }

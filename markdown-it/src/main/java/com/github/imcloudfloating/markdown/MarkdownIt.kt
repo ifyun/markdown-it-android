@@ -3,14 +3,14 @@ package com.github.imcloudfloating.markdown
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.webkit.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.apache.commons.text.StringEscapeUtils
+import java.lang.Thread.sleep
+import java.util.concurrent.Executors
 
 /**
  * Markdown-It View
@@ -25,6 +25,7 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
         private const val TAG = "MARKDOWN_IT_ANDROID"
     }
 
+    private val executorService = Executors.newSingleThreadExecutor()
     private var loaded = false
     var fitSystemTheme = true
 
@@ -38,7 +39,6 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
             loaded = true
-            visibility = VISIBLE
         }
 
         override fun shouldOverrideUrlLoading(
@@ -64,8 +64,8 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
     }
 
     init {
+        setBackgroundColor(Color.TRANSPARENT)
         if (!isInEditMode) {
-            visibility = INVISIBLE
             loadUrl("file:///android_asset/markdown-it/index.html")
             addJavascriptInterface(WebAppInterface(context, fitSystemTheme), "android")
             settings.run {
@@ -103,9 +103,9 @@ class MarkdownIt(context: Context, attrs: AttributeSet) : WebView(context, attrs
         /**
          * Wait for WebView to finish loading.
          */
-        GlobalScope.launch {
+        executorService.execute {
             while (!loaded) {
-                delay(100)
+                sleep(100)
             }
             post {
                 evaluateJavascript(script, null)

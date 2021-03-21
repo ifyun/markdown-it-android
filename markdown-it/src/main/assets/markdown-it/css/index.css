@@ -6,6 +6,15 @@ body {
 	padding: 1em;
 }
 
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    font-weight: bold;
+}
+
 .markdown-body strong {
 	font-weight: bold;
 }

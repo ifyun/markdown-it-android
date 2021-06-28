@@ -72,6 +72,15 @@ function setContent(content) {
 function useDarkTheme() {
 	const container = document.getElementById("container")
 	if (!container.classList.contains("dark")) {
+	    document.body.style.backgroundColor = "#0E1117"
 		container.classList.add("dark")
 	}
+}
+
+function useLightTheme() {
+    const container = document.getElementById("container")
+    if (container.classList.contains("dark")) {
+    	document.body.style.backgroundColor = "#FFFFFF"
+        container.classList.remove("dark")
+    }
 }

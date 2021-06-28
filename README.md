@@ -54,7 +54,7 @@ Add the dependency:
 
 ```groovy
 dependencies {
-	implementation 'com.github.imcloudfloating:markdown-it-android:1.0.3'
+	implementation 'com.github.imcloudfloating:markdown-it-android:1.0.4'
 }
 ```
 
@@ -69,7 +69,6 @@ Data Binding:
     android:id="@+id/markdown_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:fitSystemTheme="true"
     app:markdownString="@{viewModel.content}" />
 ```
 
@@ -85,8 +84,9 @@ findViewById<MarkdownIt>(R.id.markdown_view).markdownString = md
 
 ### Fields and methods
 
-| Field/Method     | Note                                                         |
-| ---------------- | ------------------------------------------------------------ |
-| `fitSystemTheme` | Default is `true`, auto fit system theme.                    |
-| `markdownString` | The markdown content you want to show.                       |
-| `setDarkTheme()` | Forced to use dark theme, this function will set `fitSystemTheme` to `false`. |
+| Field/Method       | Note                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| `fitSystemTheme`   | Default is `true`, auto fit system theme.                    |
+| `darkTheme`        | Use dark theme when `fitSystemTheme = false`                 |
+| `markdownString`   | The markdown content you want to show.                       |
+| `urlClickListener` | Click listener for link.                                     |

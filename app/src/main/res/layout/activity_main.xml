@@ -11,10 +11,31 @@
             type="com.github.imcloudfloating.markdown.demo.DemoViewModel" />
     </data>
 
-    <com.github.imcloudfloating.markdown.MarkdownIt
-        android:id="@+id/markdown_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:markdownString="@{vm.content}" />
+        android:layout_height="match_parent">
+
+        <com.github.imcloudfloating.markdown.MarkdownIt
+            android:id="@+id/markdown_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:darkTheme="@{vm.darkTheme}"
+            app:fitSystemTheme="@{vm.fitSystemTheme}"
+            app:markdownString="@{vm.content}">
+
+        </com.github.imcloudfloating.markdown.MarkdownIt>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{() -> vm.toggleTheme()}"
+            android:src="@{vm.theme}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

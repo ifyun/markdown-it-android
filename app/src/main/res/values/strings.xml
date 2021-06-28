@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Markdown It Android</string>
-    <string name="hint_input">Write something</string>
-    <string name="tab_edit">Edit</string>
-    <string name="tab_preview">Preview</string>
 </resources>
